@@ -98,10 +98,17 @@ public abstract class Actor {
         this.angle = angle;
     }
 
+    public void addHp(double hp) {this.hp += hp;}
+    public void addSpeed(double speed) {this.speed += speed;}
+    public void addAngle(double angle) {this.angle += angle;}
+    public void addX(double x) {this.x += x;}
+    public void addY(double y) {this.y += y;}
+
     public abstract void update();
     public abstract void render(SpriteBatch batch);
     public abstract void damage(double damage);
 
+    public static World getWorld() {return world;}
 
     public double distanceTo(float x, float y) {
         return Math.abs(Math.sqrt((x - this.x)*(x - this.x) + (y - this.y )*(y - this.y)));

@@ -1,5 +1,6 @@
 package com.mygdx.game.Map;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -22,7 +23,6 @@ public class TiledMaps implements Collision {
 
     private int LayersCount;
     TiledMapTileLayer collisionLayer;
-    private int[][] massvmap;
 
     TiledMaps(OrthographicCamera camera) {
         map = new TmxMapLoader().load("Maps/test4.tmx");
@@ -39,17 +39,17 @@ public class TiledMaps implements Collision {
     }
 
     @Override
-    public boolean interationWithMap(float x, float y, float Width, float Height) {
+    public boolean interationWithMap(float x, float y) {
 
-        boolean collisionX = false;
-        for (int c = 0; c < 20; c++)
+        /*for (int c = 0; c < 20; c++)
         for (int j = 0; j < 20; j++) {
             //collisionX = collisionLayer.getCell((int) x / 64, (int) y / 64).getTile().getProperties().containsKey("Blocked");
             collisionX = collisionLayer.getCell(j, c).getTile().getProperties().containsKey("Blocked");
-            if (collisionX)
-            System.out.println(collisionX + " " + j + " " + c);
-        }
-        return collisionX;
+        }*/
+        if (x < 0 && x > Gdx.graphics.getWidth() && y < 0 && y > Gdx.graphics.getHeight())
+            return true;
+
+        return false;
     }
 
 

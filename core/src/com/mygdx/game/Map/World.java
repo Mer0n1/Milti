@@ -1,19 +1,15 @@
 package com.mygdx.game.Map;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.ScreenUtils;
-import com.mygdx.game.ConsoleDeveloper;
+import com.mygdx.game.ui.ConsoleDeveloper;
 import com.mygdx.game.Controller;
-import com.mygdx.game.WeaponSelectionMenu;
 import com.mygdx.game.tank.Actor;
 import com.mygdx.game.tank.Enemy;
-import com.mygdx.game.tank.Player;
+import com.mygdx.game.Player;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +24,6 @@ public class World {
     private SpriteBatch batch;
 
     private ConsoleDeveloper consoleDeveloper = new ConsoleDeveloper();
-    private WeaponSelectionMenu weaponSelectionMenu;
 
     public World() {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -41,11 +36,12 @@ public class World {
         list = new ArrayList<>();
         controller = new Controller();
         player = new Player(controller);
-        player.setCoord(400, 400);
-        list.add(player);
-        //camera.zoom = 1.5f; //test other mobile
+        player.getTank().setCoord(400, 400);
+        list.add(player.getTank());
+        //camera.zoom = 1.5f; //test other mobile //в зависимости от размеров экрана телефона //st: 1920 на 1200
+        //camera.zoom = (1920f / Gdx.graphics.getWidth() + 1200f / Gdx.graphics.getHeight()) / 2f;
+        //camera.translate(1920f - Gdx.graphics.getWidth(), 1200f - Gdx.graphics.getHeight());
 
-        weaponSelectionMenu = new WeaponSelectionMenu();
         //test
         addEntity(new Enemy());
         list.get(list.size() - 1).setCoord(800, 800);
@@ -57,6 +53,7 @@ public class World {
         batch.setProjectionMatrix(camera.combined);
         camera.update();
         controller.check();
+        player.update();
 
         batch.begin();
         map.render();
@@ -65,11 +62,9 @@ public class World {
             ac.update();
             ac.render(batch);
         }
+        player.render(batch);
 
         consoleDeveloper.update(batch); //отрисовки меню разработчика
-        /*weaponSelectionMenu.updateController();
-        weaponSelectionMenu.render(batch);*/
-
         batch.end();
     }
 
@@ -78,5 +73,4 @@ public class World {
         list.add(entity);
     }
     public List<Actor> getListActors() { return list; }
-
 }

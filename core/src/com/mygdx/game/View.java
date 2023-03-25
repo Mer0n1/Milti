@@ -31,14 +31,17 @@ public class View {
     }
     public void setTexture(String path) {
         texture = new Texture(path);
-        model.setTexture(texture);
+        setTexture(texture);
     }
     public void setTexture(Texture texture) {
         this.texture = texture;
         model.setTexture(texture);
+        entity.setWidth(model.getRegionWidth());
+        entity.setHeight(model.getRegionHeight());
     }
 
     public void render(SpriteBatch batch) {
+
         batch.draw(model, entity.getX() - entity.getWidth() / 2, entity.getY() - entity.getHeight() / 2,
                 entity.getWidth()/2, entity.getHeight()/2,
                 entity.getWidth(), entity.getHeight(),

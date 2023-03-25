@@ -20,7 +20,7 @@ public class Bullet implements ViewObject {
     private Vector2 begin, end, CurrentPosition;
     private double speed = 10;
 
-    public Bullet(Vector2 begin, Vector2 end)
+    public Bullet(Vector2 begin, Vector2 end, double speed)
     {
         texture = new Texture("bullet.png");
         textureRegion = new TextureRegion(texture);
@@ -30,6 +30,7 @@ public class Bullet implements ViewObject {
         this.begin = new Vector2(begin);
         this.end = new Vector2(end);
         this.CurrentPosition = new Vector2(begin);
+        this.speed = speed;
         angle = 0;
 
         start();
@@ -46,11 +47,11 @@ public class Bullet implements ViewObject {
     }
 
     public Vector2 getCurrentPosition() { return CurrentPosition; }
+    public void setSpeed(double speed) { this.speed = speed;}
 
     @Override
     public void render(SpriteBatch batch) {
         CurrentPosition.add((float)(cos*speed), (float)(sin*speed));
-
         batch.draw(textureRegion,
                 CurrentPosition.x, CurrentPosition.y,
                 0,0,
