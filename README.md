@@ -17,3 +17,8 @@ Milti - мобильная 2д игра, созданная на фреймво�
 Архитектура
 ---------------------------------
 <img src="ReferenceImages/exampleArSimple.jpg">
+
+Примеры
+---------------------------------
+<img src="ReferenceImages/ImgGame1.jpg">
+<img src="ReferenceImages/ImgGame2.jpg">
