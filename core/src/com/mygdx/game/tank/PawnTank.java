@@ -14,7 +14,7 @@ public class PawnTank extends Actor {
     protected View view;
     private double ControllerSpeed;
 
-    PawnTank() {
+    public PawnTank() {
 
         view = new View(this);
         healthBar = new HealthBar(hp, hp);
@@ -29,7 +29,6 @@ public class PawnTank extends Actor {
 
     @Override
     public void update() {
-
         combatSystem.update();
         healthBar.setCurrent_hp(hp);
         healthBar.update();

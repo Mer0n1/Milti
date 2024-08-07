@@ -5,6 +5,7 @@ import com.mygdx.game.View;
 import com.mygdx.game.tank.Actor;
 import com.mygdx.game.tank.Bullet;
 import com.mygdx.game.tank.PawnTank;
+import com.mygdx.game.ui.CallbackList;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class CombatSystem {
     private List<Actor> actors;
 
     //Выстрелы (пули)
-    private List<Bullet> bullets;
+    private CallbackList<Bullet> bullets;
     protected float Delay = 0.5f; //задержка между выстрелами
     protected float saveTime = 0; //сохраненное время для синхронизации с задержкой
     public final float distanceOfDeleting = 1000; //дистанция от actor при которой удаляются пули
@@ -29,7 +30,7 @@ public class CombatSystem {
     protected float Time = 0;
 
     public CombatSystem(PawnTank actor) {
-        bullets = new ArrayList<>();
+        bullets = new CallbackList<>();
         //this.controller = controller;
         this.actor = actor;
         this.view = actor.getView();
@@ -84,8 +85,12 @@ public class CombatSystem {
 
     public List<Actor> getActors() {return actors;}
     public float getDelay() {return Delay;}
+    public CallbackList<Bullet> getBullets() {
+        return bullets;
+    }
 
     public void setDelay(float delay) { this.Delay = delay; }
     public void setSpeedBullet(float speedBullet) { this.speedBullet = speedBullet; }
     public void setFire(boolean isFire) {this.isFire = isFire;}
+
 }

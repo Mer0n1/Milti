@@ -33,7 +33,7 @@ public class Player {
         tank.setControllerSpeed(Math.sin(controller.getAngle(Controller.TypeJoystick.Right))); //скорость
         tank.move();
 
-        //standart update
+        //standard update
         tank.getCombatSystem().setFire(interfacePlayer.getFire());
         interfacePlayer.update();
     }

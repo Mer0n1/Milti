@@ -73,4 +73,12 @@ public class World {
         list.add(entity);
     }
     public List<Actor> getListActors() { return list; }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public List<Actor> getList() {
+        return list;
+    }
 }

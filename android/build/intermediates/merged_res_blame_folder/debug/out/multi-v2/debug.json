@@ -4,17 +4,7 @@
             "outputFile": "com.mygdx.game.android-merged_res-5:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "D:\\Github\\Milti\\android\\res\\values\\color.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "55",
-                        "endOffsets": "106"
-                    }
-                },
-                {
-                    "source": "D:\\Github\\Milti\\android\\res\\values\\strings.xml",
+                    "source": "D:\\Github\\Android apps\\Milti\\android\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -28,6 +18,16 @@
                         "startOffsets": "111",
                         "endColumns": "42",
                         "endOffsets": "149"
+                    }
+                },
+                {
+                    "source": "D:\\Github\\Android apps\\Milti\\android\\res\\values\\color.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
                     }
                 }
             ]

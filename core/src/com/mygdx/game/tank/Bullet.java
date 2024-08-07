@@ -47,11 +47,25 @@ public class Bullet implements ViewObject {
     }
 
     public Vector2 getCurrentPosition() { return CurrentPosition; }
+
+    public Vector2 getEndPosition() { return end; }
+
+    public Vector2 getBeginPosition() { return begin; }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public double getSpeed() {
+        return speed;
+    }
+
     public void setSpeed(double speed) { this.speed = speed;}
 
     @Override
     public void render(SpriteBatch batch) {
         CurrentPosition.add((float)(cos*speed), (float)(sin*speed));
+
         batch.draw(textureRegion,
                 CurrentPosition.x, CurrentPosition.y,
                 0,0,
